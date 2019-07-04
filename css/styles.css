@@ -46,6 +46,10 @@ body {
   overflow: hidden;
 }
 
+.header__menu-toggle input {
+  display: none;
+}
+
 .sidebar {
   grid-area: news;
 }
@@ -596,7 +600,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+
   body {
+    position: relative;
     grid-template-columns: 60% calc(40% - 2rem);
     grid-template-rows: 17rem 1fr calc(9rem + 2rem);
   }
@@ -607,29 +613,115 @@ body {
     align-items: center;
   }
 
+  /*menu toggle*/
+  .header__menu-toggle {
+    display: block;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .header__menu-toggle input {
+    position: absolute;
+    display: block;
+    width: 4rem;
+    height: 3.2rem;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 50;
+  }
+
+  .header__menu-toggle span {
+    display: block;
+    width: 3.3rem;
+    height: .4rem;
+    margin-bottom: .5rem;
+    position: relative;
+
+    background: white;
+    border-radius: .3rem;
+
+    z-index: 15;
+
+    transform-origin: .4rem 0px;
+
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      opacity 0.55s ease;
+  }
+
+  .header__menu-toggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  .header__menu-toggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  /* Transform all the slices of hamburger
+into a crossmark. */
+  .header__menu-toggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #B71757;
+  }
+
+  /* hide the middle one */
+  .header__menu-toggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  /*last one should go the other direction*/
+  .header__menu-toggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  /* Make this absolute positioned
+  at the top left of the screen */
+  .header__list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10rem;
+    position: absolute;
+    width: 30rem;
+    margin: -5rem 0 0 -7rem;
+    height: 102%;
+    background: #0b192fbb;
+    box-shadow: 0.1rem 0 0.3rem 0 rgba(1, 1, 1, .8);
+    z-index: 1;
+    list-style-type: none;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+  .header__list li {
+    padding: 1rem 0;
+    font-size: 2.2rem;
+  }
+
+  /* slide from the left */
+  .header__menu-toggle input:checked~ul {
+    transform: none;
+  }
+
+  .nav__link:link,
+  .nav__link:visited {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 400;
+  }
+  /*end*/
+
   .heading-1 {
     padding-bottom: 3rem;
   }
 
-  .header .header__list,
   .header .contacts li:not(:first-child) {
     display: none;
   }
 
   .header__nav {
-    position: relative;
     padding-left: 1.25rem;
-  }
-
-  .header__nav::before {
-    content: "";
-    position: absolute;
-    top: 0.25rem;
-    left: 0;
-    width: 3rem;
-    height: 0.2rem;
-    background: white;
-    box-shadow: 0 1rem 0 0 white, 0 2rem 0 0 white;
   }
 
   .header__nav-panel {
@@ -716,7 +808,7 @@ body {
     padding-top: 70rem;
   }
 
-  .blog-item p {
+ .blog-item p {
     margin-top: 0;
   }
 
@@ -730,7 +822,7 @@ body {
 
   .blog-profile {
     position: absolute;
-    top: 25%;
+    top: 3.6%;;
   }
 
   .blog-item {
@@ -763,7 +855,7 @@ body {
   }
 
   .footer {
-    padding: 8rem 3rem;
+    padding: 11rem 3rem;
     margin: 0;
   }
 }
