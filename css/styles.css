@@ -710,6 +710,7 @@ into a crossmark. */
     color: white;
     font-weight: 400;
   }
+
   /*end*/
 
   .heading-1 {
@@ -808,7 +809,7 @@ into a crossmark. */
     padding-top: 70rem;
   }
 
- .blog-item p {
+  .blog-item p {
     margin-top: 0;
   }
 
@@ -822,7 +823,8 @@ into a crossmark. */
 
   .blog-profile {
     position: absolute;
-    top: 3.6%;;
+    top: 3.6%;
+    ;
   }
 
   .blog-item {
