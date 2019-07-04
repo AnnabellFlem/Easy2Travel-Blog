@@ -144,7 +144,7 @@ body {
   flex: 1 1 30rem;
 }
 
-.blog-item > div {
+.blog-item>div {
   position: relative;
   height: 30rem;
   padding: 4% 5%;
@@ -505,7 +505,7 @@ body {
 .comment-item .date {
   grid-area: date;
   color: #919191;
-right: 0;
+  right: 0;
 }
 
 .comment-item .name,
@@ -643,7 +643,7 @@ right: 0;
     flex-direction: column;
   }
 
-  .blog-item > div {
+  .blog-item>div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -695,6 +695,10 @@ right: 0;
 }
 
 @media screen and (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
   body {
     grid-template-columns: 1fr;
     grid-template-rows: 20rem 1fr max-content calc(9rem + 2rem);
@@ -703,10 +707,55 @@ right: 0;
       'blog'
       'news'
       'footer';
+    grid-gap: 0;
+    margin: 0 0;
+  }
+
+  main {
+    position: relative;
+    padding-top: 70rem;
+  }
+
+  .blog-item p {
+    margin-top: 0;
+  }
+
+  .blog-item {
+    margin-bottom: 0;
+  }
+
+  .blog-item .date {
+    padding-top: 0rem;
+  }
+
+  .blog-profile {
+    position: absolute;
+    top: 25%;
   }
 
   .blog-item {
     margin-right: 0;
+  }
+
+  .blog-news__item {
+    margin-bottom: 0;
+  }
+
+  .blog-search {
+    border-top: 2px solid #B71757;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-tags {
+    padding-top: 2rem;
+  }
+
+  .blog-subscribe {
+    padding-top: 7rem;
+  }
+
+  .blog-tags p::before {
+    top: 2rem;
   }
 
   .footer__copyright--right {
@@ -715,5 +764,12 @@ right: 0;
 
   .footer {
     padding: 8rem 3rem;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  main {
+    padding-top: 63rem;
   }
 }
