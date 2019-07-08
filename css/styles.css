@@ -78,16 +78,12 @@ body {
 }
 
 .header__list {
-  height: 100%;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   list-style: none;
   font-size: 1.8rem;
   font-weight: 300;
-}
-
-.header__list li:last-child {
-  margin-right: 4rem;
 }
 
 .nav__link:link,
@@ -191,10 +187,12 @@ body {
 }
 
 .blog-item p {
+  height: 11rem;
+  padding-bottom: 3rem;
   font-size: 1.3rem;
   font-weight: 300;
   line-height: 2.2rem;
-  margin-top: 2rem;
+  padding-top: 2rem;
   color: rgba(255, 255, 255, .5);
   overflow: hidden;
   word-wrap: break-word;
@@ -585,6 +583,10 @@ body {
     margin: 0 4%;
   }
 
+  .blog-item p {
+    padding-top: 1rem;
+  }
+
   .header__nav-panel .contacts img,
   .blog-sotial .contacts img {
     width: 2rem;
@@ -760,6 +762,7 @@ into a crossmark. */
   }
 
   .blog-item p {
+    height: 100%;
     line-height: 2.5rem;
     font-size: 1.5rem;
     margin-top: 2rem;
